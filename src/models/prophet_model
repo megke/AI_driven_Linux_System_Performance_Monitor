@@ -1,0 +1,16 @@
+from prophet import Prophet
+
+def create_prophet_model(data, freq='H'):
+    """
+    Creates a Prophet model for time series forecasting with seasonality.
+
+    Args:
+        data: Time series data in pandas DataFrame format with 'ds' (date) and 'y' (value) columns.
+        freq: Data frequency (e.g., 'H' for hourly, 'D' for daily).
+
+    Returns:
+        Prophet: The fitted Prophet model.
+    """
+    model = Prophet(seasonality_mode='multiplicative', daily_seasonality=True)
+    model.fit(data)
+    return model

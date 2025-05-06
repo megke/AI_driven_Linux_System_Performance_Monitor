@@ -1,0 +1,16 @@
+from statsmodels.tsa.arima.model import ARIMA
+
+def create_arima_model(data, order=(5,1,0)):
+    """
+    Creates an ARIMA model for time series forecasting.
+
+    Args:
+        data: Time series data.
+        order: Order of the ARIMA model (p,d,q).
+
+    Returns:
+        ARIMA: The fitted ARIMA model.
+    """
+    model = ARIMA(data, order=order)
+    model_fit = model.fit()
+    return model_fit
